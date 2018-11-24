@@ -29,7 +29,7 @@ open class TwitterAlert: UIView {
     
     private let bundleView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(red: 221, green: 221, blue: 221, alpha: 1)
+        view.backgroundColor = UIColor(red: 221 / 255, green: 221 / 255, blue: 221 / 255, alpha: 1)
         view.layer.cornerRadius = 5
         return view
     }()
@@ -39,7 +39,7 @@ open class TwitterAlert: UIView {
     private let cancelButton: UIButton = {
         let button = UIButton()
         button.setTitle("キャンセル", for: .normal)
-        button.backgroundColor = UIColor(red: 221, green: 221, blue: 221, alpha: 1)
+        button.backgroundColor = UIColor(red: 221 / 255, green: 221 / 255, blue: 221 / 255, alpha: 1)
         button.setTitleColor(UIColor.black, for: .normal)
         button.addTarget(self, action: #selector(TwitterAlert.back), for: .touchUpInside)
         return button
@@ -67,7 +67,6 @@ open class TwitterAlert: UIView {
         containerView.addSubview(cancelButton)
         containerView.addSubview(bgBundleView)
         bgBundleView.addSubview(bundleView)
-//        setUp()
     }
     
     required public init?(coder aDecoder: NSCoder) {
