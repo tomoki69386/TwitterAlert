@@ -18,9 +18,15 @@ class ViewController: UIViewController {
         let customView = TwitterAlert()
         customView.load(item: ["コメント", "リツイート"])
         customView.frame = self.view.bounds
+        customView.delegate = self
         self.view.addSubview(customView)
     }
 
 
 }
 
+extension ViewController: TwitterAlertDelegate {
+    func twitterAlert(_ twitterAlert: TwitterAlert, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath.row)
+    }
+}

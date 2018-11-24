@@ -8,6 +8,10 @@
 
 import UIKit
 
+public protocol TwitterAlertDelegate: class {
+    func twitterAlert(_ twitterAlert: TwitterAlert, didSelectRowAt indexPath: IndexPath)
+}
+
 open class TwitterAlert: UIView {
     private let backgroundView: UIButton = {
         let button = UIButton()
@@ -46,6 +50,7 @@ open class TwitterAlert: UIView {
     }()
     
     private var items = [String]()
+    public weak var delegate: TwitterAlertDelegate?
     
     public func load(item: [String]) {
         items = item
@@ -126,7 +131,8 @@ extension TwitterAlert: UITableViewDataSource {
 }
 
 extension TwitterAlert: UITableViewDelegate {
-    private func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        delegate?.twitterAlert(self, didSelectRowAt: indexPath)
     }
 }
