@@ -52,6 +52,18 @@ open class TwitterAlert: UIView {
     private var items = [String]()
     public weak var delegate: TwitterAlertDelegate?
     
+    public var isScrollEnabled: Bool = true {
+        didSet {
+            tableView.isScrollEnabled = isScrollEnabled
+        }
+    }
+    
+    public var rowHeight: CGFloat = 60 {
+        didSet {
+            tableView.rowHeight = rowHeight
+        }
+    }
+    
     public func load(item: [String]) {
         items = item
     }
@@ -62,8 +74,6 @@ open class TwitterAlert: UIView {
         tableView.tableFooterView = UIView()
         tableView.register(AlertTableViewCell.self, forCellReuseIdentifier: "AlertCell")
         tableView.separatorStyle = .none
-        tableView.rowHeight = 60
-        tableView.isScrollEnabled = false
         tableView.dataSource = self
         tableView.delegate = self
         
@@ -89,13 +99,14 @@ open class TwitterAlert: UIView {
     private func setUp() {
         
         let cellCount = items.count + 1
-        let height: CGFloat = CGFloat(60 * cellCount + 30)
+        let cellHeight: Int = Int(rowHeight)
+        let height: CGFloat = CGFloat(cellHeight * cellCount + 30)
         let zero: CGFloat = 0
         
         backgroundView.frame = self.bounds
         containerView.frame = CGRect(x: zero, y: backgroundView.frame.height, width: backgroundView.frame.width, height: height)
-        tableView.frame = CGRect(x: 0, y: 30, width: Int(containerView.frame.width), height: 60 * items.count)
-        cancelButton.frame = CGRect(x: 5, y: tableView.frame.maxY + 5, width: containerView.frame.width - 10, height: 50)
+        tableView.frame = CGRect(x: 0, y: 30, width: Int(containerView.frame.width), height: cellHeight * items.count)
+        cancelButton.frame = CGRect(x: 5, y: tableView.frame.maxY + 5, width: containerView.frame.width - 10, height: rowHeight - 10)
         cancelButton.layer.cornerRadius = 25
         bgBundleView.frame = CGRect(x: 0, y: 0, width: containerView.frame.width, height: 30)
         bundleView.frame = CGRect(x: 0, y: 0, width: 100, height: 10)
