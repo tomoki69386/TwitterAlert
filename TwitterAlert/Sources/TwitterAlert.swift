@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class TwitterAlert: UIView {
+open class TwitterAlert: UIView {
     private let backgroundView: UIButton = {
         let button = UIButton()
         button.backgroundColor = UIColor.black
@@ -47,16 +47,10 @@ public class TwitterAlert: UIView {
     
     private var items = [String]()
     
-    required override init(frame: CGRect) {
+    required override public init(frame: CGRect) {
         super.init(frame: frame)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError()
-    }
-    
-    override public func layoutSubviews() {
-        super.layoutSubviews()
+        
+        items = ["リツイート", "コメントを付けてリツイート"]
         
         tableView.tableFooterView = UIView()
         tableView.register(AlertTableViewCell.self, forCellReuseIdentifier: "AlertCell")
@@ -67,13 +61,23 @@ public class TwitterAlert: UIView {
         tableView.delegate = self
         
         backgroundView.addTarget(self, action: #selector(TwitterAlert.back), for: .touchUpInside)
-        backgroundView.frame = self.bounds
         self.addSubview(backgroundView)
         self.addSubview(containerView)
         containerView.addSubview(tableView)
         containerView.addSubview(cancelButton)
         containerView.addSubview(bgBundleView)
         bgBundleView.addSubview(bundleView)
+//        setUp()
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        fatalError()
+    }
+    
+    override open func layoutSubviews() {
+        super.layoutSubviews()
+        
+        setUp()
     }
     
     private func setUp() {
@@ -82,6 +86,7 @@ public class TwitterAlert: UIView {
         let height: CGFloat = CGFloat(60 * cellCount + 30)
         let zero: CGFloat = 0
         
+        backgroundView.frame = self.bounds
         containerView.frame = CGRect(x: zero, y: backgroundView.frame.height, width: backgroundView.frame.width, height: height)
         tableView.frame = CGRect(x: 0, y: 30, width: Int(containerView.frame.width), height: 60 * items.count)
         cancelButton.frame = CGRect(x: 5, y: tableView.frame.maxY + 5, width: containerView.frame.width - 10, height: 50)
@@ -89,7 +94,6 @@ public class TwitterAlert: UIView {
         bgBundleView.frame = CGRect(x: 0, y: 0, width: containerView.frame.width, height: 30)
         bundleView.frame = CGRect(x: 0, y: 0, width: 100, height: 10)
         bundleView.center = bgBundleView.center
-        
         willAnimation()
     }
     
