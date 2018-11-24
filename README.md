@@ -28,3 +28,80 @@ carthage update
 
 Add TwitterAlert.framework in /Carthage/Build/iOS/ to Embedded Binaries.
 
+
+
+# Usage
+
+Create TwitterAlertView in swift file
+
+
+
+```swift
+import TwitterAlert
+
+let customView = TwitterAlert()
+customView.load(item: ["コメント", "リツイート"])
+customView.frame = self.view.bounds
+customView.delegate = self
+self.view.addSubview(customView)
+```
+
+
+
+Conform to TwitterAlertDelegate
+
+```swift
+class ViewController: UIViewController, TwitterAlertDelegate {
+```
+
+### TwitterAlertDelegate method
+When did tap, this method is called
+
+```
+func twitterAlert(_ twitterAlert: TwitterAlert, didSelectRowAt indexPath: IndexPath)
+```
+
+
+
+# Demo
+
+Check the Demo file!!
+
+```swift
+import UIKit
+import TwitterAalert
+
+class ViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    @IBAction func tap() {
+        let customView = TwitterAlert()
+        customView.load(item: ["コメント", "リツイート"])
+        customView.frame = self.view.bounds
+        customView.delegate = self
+        self.view.addSubview(customView)
+    }
+
+
+}
+
+extension ViewController: TwitterAlertDelegate {
+    func twitterAlert(_ twitterAlert: TwitterAlert, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath.row)
+    }
+}
+```
+
+
+
+# Contribution
+Please create issues or submit pull requests for anything.
+
+# License
+
+TwitterAlert is released under the MIT license.
+
+© 2018 GitHub, Inc.
