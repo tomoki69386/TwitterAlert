@@ -64,6 +64,12 @@ open class TwitterAlert: UIView {
         }
     }
     
+    public var cancelText: String = "キャンセル" {
+        didSet {
+            cancelButton.setTitle(cancelText, for: .normal)
+        }
+    }
+    
     public func load(item: [String]) {
         items = item
     }
@@ -74,6 +80,7 @@ open class TwitterAlert: UIView {
         tableView.tableFooterView = UIView()
         tableView.register(AlertTableViewCell.self, forCellReuseIdentifier: "AlertCell")
         tableView.separatorStyle = .none
+        tableView.rowHeight = rowHeight
         tableView.dataSource = self
         tableView.delegate = self
         
