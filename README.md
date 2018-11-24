@@ -57,7 +57,7 @@ class ViewController: UIViewController, TwitterAlertDelegate {
 ### TwitterAlertDelegate method
 When did tap, this method is called
 
-```
+```swift
 func twitterAlert(_ twitterAlert: TwitterAlert, didSelectRowAt indexPath: IndexPath)
 ```
 
