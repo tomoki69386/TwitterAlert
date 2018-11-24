@@ -48,6 +48,21 @@ self.view.addSubview(customView)
 
 
 
+# Options
+
+```swift
+customView.isScrollEnabled = false
+customView.bundleBarColor = UIColor.gray
+customView.cancelTitleColor = UIColor.white
+customView.cancelBackgroundColor = UIColor.black
+customView.cancelText = "Done"
+customView.rowHeight = 80
+```
+
+
+
+
+
 Conform to TwitterAlertDelegate
 
 ```swift
@@ -96,6 +111,10 @@ extension ViewController: TwitterAlertDelegate {
 ```
 
 
+
+# Author
+
+Tomoki, [@tomoki_sun](https://twitter.com/tomoki_sun)
 
 # Contribution
 Please create issues or submit pull requests for anything.
