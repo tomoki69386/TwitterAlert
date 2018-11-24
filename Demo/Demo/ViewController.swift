@@ -12,8 +12,11 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    @IBAction func tap() {
         let customView = TwitterAlert()
+        customView.load(item: ["コメント", "リツイート"])
         customView.frame = self.view.bounds
         self.view.addSubview(customView)
     }

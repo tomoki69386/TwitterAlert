@@ -47,10 +47,12 @@ open class TwitterAlert: UIView {
     
     private var items = [String]()
     
+    public func load(item: [String]) {
+        items = item
+    }
+    
     required override public init(frame: CGRect) {
         super.init(frame: frame)
-        
-        items = ["リツイート", "コメントを付けてリツイート"]
         
         tableView.tableFooterView = UIView()
         tableView.register(AlertTableViewCell.self, forCellReuseIdentifier: "AlertCell")
@@ -106,8 +108,7 @@ open class TwitterAlert: UIView {
         UIView.animate(withDuration: 0.5, animations: {
             self.containerView.frame.origin.y += self.backgroundView.frame.maxY
         }, completion: { _ in
-//            self.dismiss(animated: false, completion: nil)
-            print("戻る")
+            self.removeFromSuperview()
         })
     }
 }
