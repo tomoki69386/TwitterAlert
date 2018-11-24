@@ -7,15 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B787D84521A8C9FE00D0EC1D /* TwitterAlert.h in Headers */ = {isa = PBXBuildFile; fileRef = B787D84321A8C9FE00D0EC1D /* TwitterAlert.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B77BD46421A8CE1A00EFD5C1 /* AlertTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B77BD46321A8CE1A00EFD5C1 /* AlertTableViewCell.swift */; };
+		B77BD46C21A8CE9A00EFD5C1 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B77BD46A21A8CE9A00EFD5C1 /* Info.plist */; };
+		B77BD46D21A8CE9A00EFD5C1 /* TwitterAlert.h in Headers */ = {isa = PBXBuildFile; fileRef = B77BD46B21A8CE9A00EFD5C1 /* TwitterAlert.h */; };
 		B787D84D21A8CA5C00D0EC1D /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B787D84C21A8CA5C00D0EC1D /* UIKit.framework */; };
 		B787D85121A8CB1000D0EC1D /* TwitterAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B787D85021A8CB1000D0EC1D /* TwitterAlert.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B77BD46321A8CE1A00EFD5C1 /* AlertTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertTableViewCell.swift; sourceTree = "<group>"; };
+		B77BD46A21A8CE9A00EFD5C1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B77BD46B21A8CE9A00EFD5C1 /* TwitterAlert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterAlert.h; sourceTree = "<group>"; };
 		B787D84021A8C9FE00D0EC1D /* TwitterAlert.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TwitterAlert.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B787D84321A8C9FE00D0EC1D /* TwitterAlert.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TwitterAlert.h; sourceTree = "<group>"; };
-		B787D84421A8C9FE00D0EC1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B787D84C21A8CA5C00D0EC1D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		B787D85021A8CB1000D0EC1D /* TwitterAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterAlert.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -53,7 +56,6 @@
 			children = (
 				B787D84F21A8CAB200D0EC1D /* Sources */,
 				B787D84B21A8CA5B00D0EC1D /* Frameworks */,
-				B787D84E21A8CA9B00D0EC1D /* SupportingFiles */,
 			);
 			path = TwitterAlert;
 			sourceTree = "<group>";
@@ -67,19 +69,13 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		B787D84E21A8CA9B00D0EC1D /* SupportingFiles */ = {
-			isa = PBXGroup;
-			children = (
-				B787D84321A8C9FE00D0EC1D /* TwitterAlert.h */,
-				B787D84421A8C9FE00D0EC1D /* Info.plist */,
-			);
-			name = SupportingFiles;
-			sourceTree = "<group>";
-		};
 		B787D84F21A8CAB200D0EC1D /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				B787D85021A8CB1000D0EC1D /* TwitterAlert.swift */,
+				B77BD46321A8CE1A00EFD5C1 /* AlertTableViewCell.swift */,
+				B77BD46A21A8CE9A00EFD5C1 /* Info.plist */,
+				B77BD46B21A8CE9A00EFD5C1 /* TwitterAlert.h */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -91,7 +87,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B787D84521A8C9FE00D0EC1D /* TwitterAlert.h in Headers */,
+				B77BD46D21A8CE9A00EFD5C1 /* TwitterAlert.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,6 +133,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = B787D83621A8C9FE00D0EC1D;
 			productRefGroup = B787D84121A8C9FE00D0EC1D /* Products */;
@@ -153,6 +150,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B77BD46C21A8CE9A00EFD5C1 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -163,6 +161,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B77BD46421A8CE1A00EFD5C1 /* AlertTableViewCell.swift in Sources */,
 				B787D85121A8CB1000D0EC1D /* TwitterAlert.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
