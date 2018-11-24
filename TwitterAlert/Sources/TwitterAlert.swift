@@ -33,7 +33,6 @@ open class TwitterAlert: UIView {
     
     private let bundleView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(red: 221 / 255, green: 221 / 255, blue: 221 / 255, alpha: 1)
         view.layer.cornerRadius = 5
         return view
     }()
@@ -42,9 +41,6 @@ open class TwitterAlert: UIView {
     
     private let cancelButton: UIButton = {
         let button = UIButton()
-        button.setTitle("キャンセル", for: .normal)
-        button.backgroundColor = UIColor(red: 221 / 255, green: 221 / 255, blue: 221 / 255, alpha: 1)
-        button.setTitleColor(UIColor.black, for: .normal)
         button.addTarget(self, action: #selector(TwitterAlert.back), for: .touchUpInside)
         return button
     }()
@@ -70,17 +66,45 @@ open class TwitterAlert: UIView {
         }
     }
     
+    public var cancelBackgroundColor: UIColor = UIColor(red: 221 / 255, green: 221 / 255, blue: 221 / 255, alpha: 1) {
+        didSet {
+            cancelButton.backgroundColor = cancelBackgroundColor
+        }
+    }
+    
+    public var cancelTitleColor: UIColor = UIColor.black {
+        didSet {
+            cancelButton.setTitleColor(cancelTitleColor, for: .normal)
+        }
+    }
+    
+    public var bundleBarColor: UIColor = UIColor(red: 221 / 255, green: 221 / 255, blue: 221 / 255, alpha: 1) {
+        didSet {
+            bundleView.backgroundColor = bundleBarColor
+        }
+    }
+    
     public func load(item: [String]) {
         items = item
+    }
+    
+    private func layout() {
+        cancelButton.setTitle(cancelText, for: .normal)
+        cancelButton.backgroundColor = cancelBackgroundColor
+        cancelButton.setTitleColor(cancelTitleColor, for: .normal)
+        bundleView.backgroundColor = bundleBarColor
+        tableView.rowHeight = rowHeight
+        tableView.isScrollEnabled = isScrollEnabled
     }
     
     required override public init(frame: CGRect) {
         super.init(frame: frame)
         
+        layout()
+
         tableView.tableFooterView = UIView()
         tableView.register(AlertTableViewCell.self, forCellReuseIdentifier: "AlertCell")
         tableView.separatorStyle = .none
-        tableView.rowHeight = rowHeight
         tableView.dataSource = self
         tableView.delegate = self
         

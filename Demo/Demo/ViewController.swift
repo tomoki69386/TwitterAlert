@@ -17,7 +17,6 @@ class ViewController: UIViewController {
     @IBAction func tap() {
         let customView = TwitterAlert()
         customView.load(item: ["コメント", "リツイート"])
-        customView.cancelText = "cancel"
         customView.frame = self.view.bounds
         customView.delegate = self
         self.view.addSubview(customView)
